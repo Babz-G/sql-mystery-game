@@ -163,5 +163,5 @@ SELECT value FROM solution;
 -- Jeremy Bowers with license_id 423327
 	
 --✨ I feel like I made it a lot more difficult than it should have been. ✨
---✨ I will revisit this weekend most likely. ✨
+--✨ I will revisit this weekend most likely & work o nthe bonus. ✨
 --✨ Handing in, as is, for the sake of the assignment. ✨
