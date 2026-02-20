@@ -142,7 +142,7 @@ AND confessions.confession LIKE '%marina%';
 -- suspicious_activity: Left suddenly at 3 AM	Alright! I did it.
 -- confession: I was paid to make sure he never left the marina alive.
 
-Suspect = Thomas Brown
+✨✨ Suspect = Thomas Brown ✨✨
 
 -- ✨✨Case Solved! ✨✨
 -- Great detective work! Thomas Brown has confessed to the crime.
