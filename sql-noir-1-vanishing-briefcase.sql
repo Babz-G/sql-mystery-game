@@ -66,3 +66,4 @@ OR suspect_id = 183;
 -- a man in a trench coat with a scar on his left cheek. Next, querying the 'suspects' table
 -- narrowed the field down to two individuals. Finally, examining the 'interviews' table confirmed
 -- that Vincent Malone indeed stole the briefcase.
+
