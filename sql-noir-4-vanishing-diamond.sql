@@ -89,3 +89,89 @@ WHERE occupation = 'Actor';
 -- invitation_code: VIP-G
 
 ✨✨Clint Eastwood = Famous actor from list✨✨
+
+SELECT guest.name, witness_statements.clue
+FROM guest
+JOIN witness_statements ON guest.id = witness_statements.guest_id
+WHERE guest.id = 116
+OR guest.id = 129;
+
+-- ✨✨RESULTS✨✨
+-- name: Vivian Nair
+-- clue: I saw someone holding an invitation ending with "-R". He was wearing a navy suit and a white tie.
+
+-- name: Clint Eastwood
+-- clue: I overheard someone say, "Meet me at the marina, dock 3".
+
+SELECT guest.name, attire_registry.note
+FROM guest
+JOIN attire_registry ON guest.id = attire_registry.guest_id
+WHERE attire_registry.note LIKE '%navy%'
+AND attire_registry.note LIKE '%white tie%';
+
+-- ✨✨RESULTS✨✨
+-- name: Phoenix Velazquez
+-- note: navy suit, white tie
+
+-- name: Eden Todd
+-- note: navy suit, white tie
+
+-- name: Mike Manning
+-- note: navy suit, white tie
+
+-- name: Atlas Owens
+-- note: navy suit, white tie
+
+-- name: Atlas Roach
+-- note: navy suit, white tie
+
+-- name: Sage Dillion
+-- note: navy suit, white tie
+
+-- name: Luna Dalton
+-- note: navy suit, white tie
+
+-- name: Atlas Roach
+-- note: navy suit, white tie
+
+SELECT guest.name, guest.invitation_code, attire_registry.note
+FROM guest
+JOIN attire_registry ON guest.id = attire_registry.guest_id
+WHERE attire_registry.note LIKE '%navy%'
+AND attire_registry.note LIKE '%white tie%'
+AND guest.invitation_code LIKE '%-R';
+
+-- ✨✨RESULTS✨✨
+
+-- name: Mike Manning
+-- invitation_code: VIP-R
+-- note: navy suit, white tie
+
+SELECT guest.name, marina_rentals.dock_number, marina_rentals.boat_name
+FROM guest JOIN marina_rentals ON guest.id = marina_rentals.renter_guest_id
+WHERE guest.name = 'Mike Manning' AND marina_rentals.dock_number = 3;
+
+-- RESULTS
+-- name: Mike Manning
+-- dock_number: 3
+-- boat_name: Coastal Spirit
+
+SELECT guest.name, final_interviews.confession
+FROM guest
+JOIN final_interviews ON guest.id = final_interviews.guest_id
+WHERE guest.name = 'Mike Manning';
+
+-- ✨✨RESULTS✨✨
+-- name: Mike Manning
+-- confession: I was the one who took the crystal. I guess I need a lawyer now?
+
+✨✨ Suspect = Mike Manning ✨✨
+
+-- ✨✨Case Solved!✨✨
+-- Outstanding detective work! The evidence conclusively shows that Mike Manning is the thief.
+
+-- ✨✨Explanation✨✨
+-- You began by retrieving the crime scene record and examining witness statements, which mentioned a dock rental,
+-- part of a VIP-R invitation and a navy suit. Filtering marina rentals by these clues returned multiple entries.
+-- A multiple JOIN with the guest table and attire registry returned one candidate. A final interview with that
+-- candidate resulted in a confession. Thus, the true thief is Mike Manning.
